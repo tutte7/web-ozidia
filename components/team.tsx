@@ -1,5 +1,7 @@
+"use client"
+
 import { Button } from "@/components/ui/button"
-import { Download } from "lucide-react"
+import { ExternalLink } from "lucide-react"
 
 export function Team() {
   // Assets provistos por el marco seleccionado en Figma
@@ -133,11 +135,12 @@ export function Team() {
                   </div>
                   <Button
                     type="button"
-                    aria-label="Descargar CV"
+                    aria-label="Ver LinkedIn de Mateo"
                     className="rounded-full bg-[#efefef] text-[#181818] text-[18px] tracking-[-0.9px] w-[185px] h-[47px] px-0 py-0 gap-[8px] shadow-[0px_-2.507px_5.014px_0px_inset_rgba(137,137,137,0.08),0px_1.88px_7.521px_0px_inset_#ffffff] border border-[rgba(24,24,24,0.03)]"
+                    onClick={() => window.open('https://www.linkedin.com/in/mateoricagni/', '_blank')}
                   >
-                    Descargar CV
-                    <Download className="size-4" />
+                    Ver LinkedIn
+                    <ExternalLink className="size-4" />
                   </Button>
                 </div>
               </div>
@@ -239,11 +242,12 @@ export function Team() {
                   </div>
                   <Button
                     type="button"
-                    aria-label="Descargar CV"
+                    aria-label="Ver LinkedIn de Agustín"
                     className="rounded-full bg-[#efefef] text-[#181818] text-[18px] tracking-[-0.9px] w-[185px] h-[47px] px-0 py-0 gap-[8px] shadow-[0px_-2.507px_5.014px_0px_inset_rgba(137,137,137,0.08),0px_1.88px_7.521px_0px_inset_#ffffff] border border-[rgba(24,24,24,0.03)]"
+                    onClick={() => window.open('https://www.linkedin.com/in/agustinmcinnes/', '_blank')}
                   >
-                    Descargar CV
-                    <Download className="size-4" />
+                    Ver LinkedIn
+                    <ExternalLink className="size-4" />
                   </Button>
                 </div>
             </div>

@@ -9,9 +9,8 @@ import { Suspense } from "react"
 import "./globals.css"
 
 export const metadata: Metadata = {
-  title: "Agencia Web Minimalista | Diseño y Desarrollo",
-  description: "Agencia especializada en páginas web ultra-minimalistas con diseño simétrico y código limpio.",
-  generator: "v0.app",
+  title: "Ozidia - Diseño y Desarrollo Web",
+  description: "En Ozidia diseñamos y desarrollamos páginas web profesionales a medida, rápidas, atractivas y optimizadas para celulares. Creamos sitios pensados para generar más ventas y darle a tu negocio la presencia digital que necesita.",
 }
 
 // Fuente Inter como texto base del sitio (debe estar en scope del módulo)
