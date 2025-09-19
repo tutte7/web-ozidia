@@ -36,7 +36,7 @@ export function Process() {
         title: "Lanzamiento online",
         description:
           "Publicamos tu web y queda lista para que tu negocio tenga más visibilidad desde el primer día.",
-        image: "/servicio-ecommerce-2.png",
+        image: "/launch.svg",
       },
     ],
     []
