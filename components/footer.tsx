@@ -133,9 +133,13 @@ export function Footer() {
           </div>
 
           {/* Enlaces derecha */}
-          <div className="flex items-center gap-[20px] font-medium text-[#969696] text-[12px] tracking-[-0.6px]">
-            <a href="https://www.instagram.com/ozidia.dev/" target="_blank" rel="noreferrer" className="hover:underline">Instagram</a>
-            <a href="https://wa.me/5492233551992" target="_blank" rel="noreferrer" className="hover:underline">WhatsApp</a>
+          <div className="flex items-center gap-[20px]">
+            <a href="https://www.instagram.com/ozidia.dev/" target="_blank" rel="noreferrer" className="hover:opacity-70 transition-opacity">
+              <img src="/instagram-icon.svg" alt="Instagram" className="h-[20px] w-[20px]" />
+            </a>
+            <a href="https://wa.me/5492233551992" target="_blank" rel="noreferrer" className="hover:opacity-70 transition-opacity">
+              <img src="/logo-wsp.svg" alt="WhatsApp" className="h-[20px] w-[20px]" />
+            </a>
           </div>
         </div>
       </div>

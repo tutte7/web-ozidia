@@ -87,55 +87,125 @@ export function Navbar() {
               </SheetTrigger>
             </div>
 
-            {/* Menú móvil: overlay blanco a pantalla completa, items alineados a la izquierda y CTA inferior */}
-            <SheetContent
+            {/* Menú móvil: diseño estético con animaciones y gradientes */}
+            <SheetContent 
               side="top"
-              className="inset-0 h-screen w-screen border-none bg-white p-0"
+              className="inset-0 h-screen w-screen border-none bg-gradient-to-br from-slate-50 via-white to-gray-50 p-0 overflow-hidden [&>button]:hidden"
             >
-              {/* Top bar */}
-              <div className="h-[64px] flex items-center justify-between px-4 border-b border-[#EDEDED]">
-                <a href="#hero" onClick={() => setActive("hero")} aria-label="Ir a inicio" className="flex items-center gap-2">
-                  <img src={imgLogoFooter} alt="Ozidia" className="h-6 w-7" />
+              {/* Elementos decorativos de fondo */}
+              <div className="absolute inset-0 overflow-hidden pointer-events-none">
+                <div className="absolute -top-24 -right-24 w-48 h-48 bg-gradient-to-br from-orange-100 to-red-100 rounded-full opacity-30 blur-3xl"></div>
+                <div className="absolute top-1/3 -left-24 w-32 h-32 bg-gradient-to-br from-blue-100 to-purple-100 rounded-full opacity-25 blur-2xl"></div>
+                <div className="absolute bottom-1/4 right-1/4 w-24 h-24 bg-gradient-to-br from-yellow-100 to-orange-100 rounded-full opacity-20 blur-xl"></div>
+              </div>
+
+              {/* Top bar con glassmorphism */}
+              <div className="relative h-[80px] flex items-center justify-between px-6 backdrop-blur-md bg-white/70 border-b border-white/20 shadow-sm">
+                <a 
+                  href="#hero" 
+                  onClick={() => setActive("hero")} 
+                  aria-label="Ir a inicio" 
+                  className="flex items-center gap-3 group"
+                >
+                  <div className="h-10 w-10 rounded-2xl bg-gradient-to-br from-orange-500 to-red-500 flex items-center justify-center shadow-lg group-hover:scale-105 transition-transform duration-200">
+                    <img src={imgLogoFooter} alt="Ozidia" className="h-5 w-6 filter brightness-0 invert" />
+                  </div>
+                  <span className="text-lg font-semibold text-gray-900 tracking-tight">Ozidia</span>
                 </a>
                 <SheetClose asChild>
-                  <button aria-label="Cerrar" className="h-10 w-10 rounded-full bg-black/5 flex items-center justify-center">
-                    <X className="h-5 w-5" />
+                  <button 
+                    aria-label="Cerrar" 
+                    className="h-12 w-12 rounded-2xl bg-white/80 backdrop-blur-sm flex items-center justify-center shadow-lg hover:bg-white/90 transition-all duration-200 group"
+                  >
+                    <X className="h-5 w-5 text-gray-600 group-hover:text-gray-800 transition-colors" />
                   </button>
                 </SheetClose>
               </div>
 
-              {/* Items */}
-              <nav className="flex flex-col gap-2 px-4 py-6">
-                {[
-                  { id: "hero", label: "Home", href: "#hero" },
-                  { id: "servicios", label: "Servicios", href: "#servicios" },
-                  { id: "proyectos", label: "Proyectos", href: "#proyectos" },
-                  { id: "equipo", label: "Nosotros", href: "#equipo" },
-                  { id: "contacto", label: "Contacto", href: "#contacto" },
-                ].map((item) => (
-                  <SheetClose asChild key={item.id}>
-                    <a
-                      href={item.href}
-                      onClick={() => setActive(item.id)}
-                      className={`text-[28px] leading-none tracking-[-0.02em] py-3 ${active === item.id ? "text-black" : "text-black/80 hover:text-black"}`}
-                    >
-                      {item.label}
-                    </a>
-                  </SheetClose>
-                ))}
-              </nav>
-
-              {/* CTA sticky bottom */}
-              <div className="fixed bottom-0 left-0 right-0 bg-white border-t border-[#EDEDED] p-4">
-                <a
-                  href="https://cal.com/ozidia/30min"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="block w-full text-center text-white text-[18px] tracking-[-0.02em] rounded-[999px] py-3 bg-[linear-gradient(180deg,#ea411b_4.75%,#fc8237_103.69%)] shadow-[0_8px_24px_rgba(0,0,0,0.15)]"
-                >
-                  Agenda una reunión
-                </a>
+              {/* Navigation Items con animaciones */}
+              <div className="relative flex-1 flex flex-col justify-center px-6 pb-32">
+                <nav className="space-y-2">
+                  {[
+                    { id: "hero", label: "Home", href: "#hero", icon: "🏠" },
+                    { id: "servicios", label: "Servicios", href: "#servicios", icon: "⚡" },
+                    { id: "proyectos", label: "Proyectos", href: "#proyectos", icon: "🚀" },
+                    { id: "equipo", label: "Nosotros", href: "#equipo", icon: "👥" },
+                    { id: "contacto", label: "Contacto", href: "#contacto", icon: "📞" },
+                  ].map((item, index) => (
+                    <SheetClose asChild key={item.id}>
+                      <a
+                        href={item.href}
+                        onClick={() => setActive(item.id)}
+                        className={`group relative flex items-center gap-6 p-4 rounded-3xl transition-all duration-300 hover:translate-x-2 scroll-smooth ${
+                          active === item.id 
+                            ? "bg-gradient-to-r from-orange-500 to-red-500 text-white shadow-2xl shadow-orange-500/25" 
+                            : "bg-white/60 backdrop-blur-sm text-gray-700 hover:bg-white/80 hover:shadow-xl"
+                        }`}
+                        style={{ 
+                          animationDelay: `${index * 100}ms`,
+                          animation: "slideInLeft 0.6s ease-out forwards"
+                        }}
+                      >
+                        <div className={`text-2xl transition-transform duration-300 group-hover:scale-110 ${
+                          active === item.id ? "filter brightness-0 invert" : ""
+                        }`}>
+                          {item.icon}
+                        </div>
+                        <span className="text-2xl font-semibold tracking-tight leading-none">
+                          {item.label}
+                        </span>
+                        <div className={`absolute right-4 w-2 h-2 rounded-full transition-all duration-300 ${
+                          active === item.id 
+                            ? "bg-white scale-100" 
+                            : "bg-orange-400 scale-0 group-hover:scale-100"
+                        }`}></div>
+                      </a>
+                    </SheetClose>
+                  ))}
+                </nav>
               </div>
+
+              {/* CTA Section con diseño mejorado */}
+              <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-white/95 via-white/90 to-transparent backdrop-blur-md">
+                <div className="space-y-3">
+                  <p className="text-center text-sm text-gray-600 font-medium">
+                    ¿Listo para comenzar tu proyecto?
+                  </p>
+                  <a
+                    href="https://cal.com/ozidia/30min"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block w-full text-center text-white text-lg font-semibold tracking-tight rounded-3xl py-4 bg-gradient-to-r from-orange-500 to-red-500 shadow-2xl shadow-orange-500/30 hover:shadow-orange-500/40 hover:scale-[1.02] transition-all duration-300 active:scale-[0.98]"
+                  >
+                    Agenda una reunión
+                  </a>
+                  <div className="flex justify-center">
+                    <a
+                      href="https://wa.me/5492233551992"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2 px-6 py-3 rounded-2xl bg-green-500 text-white font-medium shadow-lg hover:bg-green-600 transition-all duration-200 hover:scale-105"
+                    >
+                      <img src={imgVector} alt="WhatsApp" className="h-5 w-5 filter brightness-0 invert" />
+                      WhatsApp
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              {/* Estilos de animación */}
+              <style jsx>{`
+                @keyframes slideInLeft {
+                  from {
+                    opacity: 0;
+                    transform: translateX(-30px);
+                  }
+                  to {
+                    opacity: 1;
+                    transform: translateX(0);
+                  }
+                }
+              `}</style>
             </SheetContent>
           </Sheet>
         </div>

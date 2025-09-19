@@ -102,11 +102,7 @@ export function Hero() {
               <div className="bg-center bg-cover bg-no-repeat h-[200px] rounded-[32px] w-full" style={{ backgroundImage: `url('${imgRectangle14}')` }} />
             </div>
             {/* Mobile: una sola imagen */}
-            <div className="sm:hidden -mx-4 px-4">
-              <div className="flex justify-center">
-                <div className="w-[280px] h-[180px] rounded-[24px] bg-center bg-cover bg-no-repeat" style={{ backgroundImage: `url('${imgRectangle13}')` }} />
-              </div>
-            </div>
+
           </div>
         </div>
 

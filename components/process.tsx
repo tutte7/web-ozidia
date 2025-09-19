@@ -93,13 +93,13 @@ export function Process() {
                 return (
                   <CarouselItem key={step.id} className="basis-full">
                     <div className="flex flex-col gap-4">
-                      <div className="relative w-full aspect-[5/4] rounded-[28px] overflow-hidden bg-[#e5e5e5]">
+                      <div className="relative w-full aspect-[5/4] rounded-[28px] overflow-hidden bg-white">
                         <Image
                           src={step.image}
                           alt={`${step.label} - ilustración`}
                           fill
                           sizes="100vw"
-                          className="object-cover"
+                          className={`${steps[activeIndex].image?.toLowerCase().includes("paso-1") ? "p-0" : "p-10" }`}
                           priority={index === 0}
                         />
                       </div>
@@ -140,14 +140,14 @@ export function Process() {
 
         {/* Desktop layout: alturas sincronizadas con el panel izquierdo */}
         <div className="hidden lg:grid gap-6 sm:gap-8 lg:grid-cols-2 items-stretch">
-          <div className={`relative mx-auto w-full max-w-[650px] aspect-[4/3] sm:aspect-[1/1] rounded-[32px] lg:rounded-[100px] overflow-hidden ${steps[activeIndex].image?.toLowerCase().includes("coder") ? "bg-white" : "bg-[#e5e5e5]"}`}>
+          <div className={`relative mx-auto w-full max-w-[650px] aspect-[4/3] sm:aspect-[1/1] rounded-[32px] lg:rounded-[100px] overflow-hidden ${steps[activeIndex].image?.toLowerCase().includes("coder") ? "bg-white" : "bg-white"}`}>
             <Image
               key={steps[activeIndex].image}
               src={steps[activeIndex].image}
               alt={`${steps[activeIndex].label} - ilustración`}
               fill
-              sizes="(min-width: 1024px) 650px, 100vw"
-              className="object-cover"
+              sizes="650px, 100vw"
+              className={`${steps[activeIndex].image?.toLowerCase().includes("paso-1") ? "p-0" : "p-20" }`}
               priority
             />
           </div>
@@ -169,7 +169,7 @@ export function Process() {
                   onMouseEnter={() => setActiveIndex(index)}
                   onFocus={() => setActiveIndex(index)}
                   className={`
-                    rounded-[24px] lg:rounded-[46px] px-6 py-5 lg:px-8 lg:py-6 cursor-pointer outline-none transition flex-1 min-h-0 overflow-hidden
+                    rounded-[24px] lg:rounded-[46px] px-6 flex flex-col justify-center lg:px-8 cursor-pointer outline-none transition flex-1 min-h-0 overflow-hidden
                     ${
                       isActive
                         ? "bg-gradient-to-br from-[#ff6a00] to-[#ff3d00] text-white shadow-md"
