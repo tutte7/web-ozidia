@@ -6,7 +6,7 @@ import { ExternalLink } from "lucide-react"
 export function Team() {
   // Assets provistos por el marco seleccionado en Figma
   const imgProfileImage = "/img-prueba-nosotros.png"
-  const imgProfileMateo = "/mateo-img-perfil.png"
+  const imgProfileMateo = "/perfilmateo.png"
   const imgProfileAgus = "/agus-img-perfil.png"
   const imgGroup = "http://localhost:3845/assets/ee4b9cb4948596ee53f174a3305d8b66a9f47aec.svg"
   const imgGroup1 = "http://localhost:3845/assets/862eb65f8fdeac007524176361364bf61f079240.svg"
